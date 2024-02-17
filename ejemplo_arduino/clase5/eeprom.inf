@@ -1,0 +1,16 @@
+/*
+Nota:
+    direccion: es la posición de la memoria EEPROM empezando desde 0.
+    EEPROM.write(direccion, valor);
+        valor: es el dato que se quiere guardar. Debe ser del tipo byte.
+    EEPROM.put(direccion, valor);
+        valor: es el valor que se quiere guardar. Puede ser cualquier tipo (por ejemplo float, int, byte, …).
+
+    direccion: es la dirección de memoria donde hay que leer el byte
+    valor: es el valor que se quiere actualizar. Si es el mismo que el que está guardado, no escribirá en la memoria.
+    EEPROM.read(direccion);
+    EEPROM.get(direccion, valor);
+    EEPROM.update(direccion, valor);
+*/
+
+https: // robots-argentina.com.ar/didactica/uso-de-la-eeprom-de-arduino/#:~:text=La%20memoria%20EEPROM%20(del%20ingl%C3%A9s,la%20alimentaci%C3%B3n%20de%20un%20dispositivo.
