@@ -8,6 +8,9 @@
 #define trigger 2
 #define echo 3
 #define led 12
+int pinButton = 8;
+int buttonVal;
+int dl = 500;
 
 void setup()
 {
@@ -15,6 +18,8 @@ void setup()
     pinMode(trigger, OUTPUT);
     pinMode(echo, INPUT);
     pinMode(led, OUTPUT);
+    // boton
+    pinMode(pinButton, INPUT_PULLUP);
 }
 
 void loop()
@@ -27,15 +32,23 @@ void loop()
     digitalWrite(trigger, LOW);
     duracion = pulseIn(echo, HIGH);
     distancia = duracion / 2 / 29.1;
-    // Serial.print("topic: ");
-    Serial.println(String(distancia) + " cm");
+    interrupcion_boton(digitalRead(pinButton), distancia);
+    delay(1000);
+}
 
-    if (distancia < 5)
+// interrupcion virtalizada.
+void interrupcion_boton(int buttonVal_, long distancia)
+{
+
+    if (buttonVal_ == 0)
     {
-        digitalWrite(led, HIGH);
+        Serial.print("topicDos: ");
+        Serial.println(String(distancia));
+        // delay(dl + 1000);
     }
     else
     {
-        digitalWrite(led, LOW);
+        Serial.print("topicUno: ");
+        Serial.println(String(distancia));
     }
 }
